@@ -1,4 +1,7 @@
+
+streamlit
 # packaging
+
 pip>=9
 setuptools>=26
 twine
@@ -27,3 +30,7 @@ six>=1.14
 joblib
 memoized-property
 termcolor
+
+streamlit_lottie
+streamlit_tags
+joblib
