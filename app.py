@@ -5,6 +5,7 @@ from streamlit_lottie import st_lottie
 from streamlit_tags import st_tags
 from utils import data_process,data_procees_1
 import joblib
+import numpy as np
 
 model= joblib.load('model.joblib')
 
@@ -18,6 +19,11 @@ def load_lottieurl(url: str):
     if r.status_code != 200:
         return None
     return r.json()
+
+
+
+st.markdown(""" <style> .blue { color:#0000FF ;}
+</style> """, unsafe_allow_html=True)
 
 
 
@@ -62,7 +68,13 @@ with st.container():
 
                 response=model.predict(prix)
 
-                st.markdown(f'Le prix au m2 de loyer est { response } euros')
+                response=np.round(response, 2)
+
+
+
+
+                st.markdown(f"<h3 class='blue'> Le prix au m2 de loyer est {response} euros </3>", unsafe_allow_html=True)
+                #
 
 
     with left_column:
